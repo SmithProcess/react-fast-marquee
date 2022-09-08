@@ -110,6 +110,7 @@ const Marquee: React.FC<MarqueeProps> = ({
   onFinish,
   onCycleComplete,
   children,
+  ...props
 }) => {
   // React Hooks
   const [containerWidth, setContainerWidth] = useState(0);
@@ -155,6 +156,7 @@ const Marquee: React.FC<MarqueeProps> = ({
       {!isMounted ? null : (
         <div
           ref={containerRef}
+          {...props}
           style={{
             ...style,
             ["--pause-on-hover" as string]: !play || pauseOnHover ? "paused" : "running",
